@@ -7,6 +7,21 @@
 	stroke-width: 3;
 	fill: none;
 }
+.pathline2 {
+	stroke: blue;
+	stroke-width: 3;
+	fill: none;
+}
+.pathline3 {
+	stroke: black;
+	stroke-width: 3;
+	fill: none;
+}
+.pathline4 {
+	stroke: yellow;
+	stroke-width: 3;
+	fill: none;
+}
 </style>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
@@ -35,19 +50,19 @@ d3.csv("./table.csv", function(data) {
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.High * (height/hmaxy); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline").
+	attr("class", "pathline2").
 	attr("d", lines);
 	var line3 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.Low * (height/lhmaxy); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline").
+	attr("class", "pathline3").
 	attr("d", lines);
 	var line4 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return d.Close * (height/chmaxy); });
 	ctrl.append("path").data([data]).
-	attr("class", "pathline").
+	attr("class", "pathline4").
 	attr("d", lines);
 	
 });
