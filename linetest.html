@@ -52,7 +52,12 @@ d3.csv("./table.csv", function(data) {
 	ctrl.append("path").data([data]).
 	attr("class", "pathline2").
 	attr("d", line2);
-
+var line3 = d3.line().
+	x(function(d,i){ return i * (width/ln); }).
+	y(function(d){ return d.High * (Low/hmaxy); });
+	ctrl.append("path").data([data]).
+	attr("class", "pathline3").
+	attr("d", line3);
 	
 });
 </script>
