@@ -56,10 +56,16 @@ d3.csv("./table.csv", function(data) {
 	attr("d", line2);
     var line3 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.High * (Low/hmaxy); });
+	y(function(d){ return d.High * (height/lhmaxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline3").
 	attr("d", line3);
+	var line4 = d3.line().
+	x(function(d,i){ return i * (width/ln); }).
+	y(function(d){ return d.High * (height/chmaxy); });
+	ctrl.append("path").data([data]).
+	attr("class", "pathline4").
+	attr("d", line4);
 	
 });
 </script>
