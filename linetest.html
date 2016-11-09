@@ -36,10 +36,10 @@ d3.csv("./table.csv", function(data) {
 		console.log(d.Low);
 		console.log(d.Close);
 	});
-	var maxy = d3.min(data, function(d) { return d.Open; });
-	var hmaxy = d3.min(data, function(d) { return d.High; });
-	var lmaxy = d3.min(data, function(d) { return d.Low; });
-	var cmaxy = d3.min(data, function(d) { return d.Close; });
+	var maxy = d3.max(data, function(d) { return d.Open; });
+	var hmaxy = d3.max(data, function(d) { return d.High; });
+	var lmaxy = d3.max(data, function(d) { return d.Low; });
+	var cmaxy = d3.max(data, function(d) { return d.Close; });
 	var ln = data.length;
 	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
 	var lines = d3.line().
@@ -50,19 +50,19 @@ d3.csv("./table.csv", function(data) {
 	attr("d", lines);
 	var line2 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.High * (height/hmaxy); });
+	y(function(d){ return d.High * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline2").
 	attr("d", line2);
     var line3 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.High * (height/lmaxy); });
+	y(function(d){ return d.Low * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline3").
 	attr("d", line3);
 	var line4 = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
-	y(function(d){ return d.High * (height/cmaxy); });
+	y(function(d){ return d.Close * (height/maxy); });
 	ctrl.append("path").data([data]).
 	attr("class", "pathline4").
 	attr("d", line4);
