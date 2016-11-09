@@ -28,7 +28,7 @@
 <body>
 <script type="text/javascript">
 var width  = 1024;
-var height = 1024; 
+var height = 768; 
 d3.csv("./table.csv", function(data) {
 	console.log(data);
 	data.forEach(function(d) {
@@ -36,10 +36,10 @@ d3.csv("./table.csv", function(data) {
 		console.log(d.Low);
 		console.log(d.Close);
 	});
-	var maxy = d3.max(data, function(d) { return d.Open; });
-	var hmaxy = d3.max(data, function(d) { return d.High; });
-	var lmaxy = d3.max(data, function(d) { return d.Low; });
-	var cmaxy = d3.max(data, function(d) { return d.Close; });
+	var maxy = d3.min(data, function(d) { return d.Open; });
+	var hmaxy = d3.min(data, function(d) { return d.High; });
+	var lmaxy = d3.min(data, function(d) { return d.Low; });
+	var cmaxy = d3.min(data, function(d) { return d.Close; });
 	var ln = data.length;
 	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
 	var lines = d3.line().
