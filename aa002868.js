@@ -1,6 +1,6 @@
 function aa002868(){
-var width  = 1024;
-var height = 768; 
+var width  = 460;
+var height = 227; 
 dataPath = 'https://aa002868.github.io/NTUB10466002/';
 	dataFile = 'table.csv';
 	dataUrl = dataPath + dataFile;
