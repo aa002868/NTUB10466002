@@ -1,7 +1,10 @@
 function aa002868(){
 var width  = 1024;
 var height = 768; 
-d3.csv("https://aa002868.github.io/NTUB10466002/table.csv", function(data) {
+dataPath = 'https://aa002868.github.io/NTUB10466002/';
+	dataFile = 'table.csv';
+	dataUrl = dataPath + dataFile;
+d3.csv("dataUrl", function(data) {
 	console.log(data);
 	data.forEach(function(d) {
 		console.log(d.Open);
@@ -13,7 +16,7 @@ d3.csv("https://aa002868.github.io/NTUB10466002/table.csv", function(data) {
 	var lmaxy = d3.max(data, function(d) { return d.Low; });
 	var cmaxy = d3.max(data, function(d) { return d.Close; });
 	var ln = data.length;
-	var ctrl  = d3.select(".smallBox").append("svg").attr("width", width).attr("height", height);
+	var ctrl  = d3.select(".newsletter").append("svg").attr("width", width).attr("height", height);
 	var lines = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return height-d.Open * (height/hmaxy); });
