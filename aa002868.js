@@ -1,7 +1,7 @@
 function aa002868(){
 var width  = 460;
 var height = 227; 
-dataPath = 'https://aa002868.github.io/NTUB10466002/';
+dataPath = 'https://github.com/aa002868/NTUB10466002/blob/master/';
 	dataFile = 'table.csv';
 	dataUrl = dataPath + dataFile;
 d3.csv("dataUrl", function(data) {
