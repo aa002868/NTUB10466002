@@ -1,13 +1,15 @@
 function aa002868(){
 var width  = 460;
 var height = 227; 
-dataPath = 'https://aa002868.github.io/NTUB10466002/';
+dataPath = 'https://kuochiacheng.github.io/D3-201611/';
 	dataFile = 'table.csv';
 	dataUrl = dataPath + dataFile;
-d3.csv("dataUrl", function(data) {
+
+d3.csv(dataUrl, function(data) {
 	console.log(data);
 	data.forEach(function(d) {
 		console.log(d.Open);
+		console.log(d.High);
 		console.log(d.Low);
 		console.log(d.Close);
 	});
@@ -16,7 +18,7 @@ d3.csv("dataUrl", function(data) {
 	var lmaxy = d3.max(data, function(d) { return d.Low; });
 	var cmaxy = d3.max(data, function(d) { return d.Close; });
 	var ln = data.length;
-	var ctrl  = d3.select(".newsletter").append("svg").attr("width", width).attr("height", height);
+	var ctrl  = d3.select("body").append("svg").attr("width", width).attr("height", height);
 	var lines = d3.line().
 	x(function(d,i){ return i * (width/ln); }).
 	y(function(d){ return height-d.Open * (height/hmaxy); });
