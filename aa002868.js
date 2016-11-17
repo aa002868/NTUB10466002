@@ -1,7 +1,7 @@
 function aa002868(){
 var width  = 460;
 var height = 227; 
-dataPath = 'https://kuochiacheng.github.io/D3-201611/';
+dataPath = 'https://aa002868.github.io/NTUB10466002/';
 	dataFile = 'table.csv';
 	dataUrl = dataPath + dataFile;
 
