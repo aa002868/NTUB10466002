@@ -12,7 +12,7 @@ dataPath = 'https://aa002868.github.io/NTUB10466002/';
 	console.log(data);
 	      d3.wordcloud()
         .size([800, 400])
-        .selector('#wordcloud')
+        .selector('#line')
         .words(data)
         .start();
 });
